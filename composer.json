@@ -1,0 +1,12 @@
+{
+    "name": "authlab_cto/ninja-feedback",
+    "description": "A feedback plugin by WP Manage Ninja.",
+    "license": "GPLv2 or later",
+    "require": {},
+    "autoload": {
+    	"psr-4": {
+            "Core\\": "core/",
+            "Plugin\\": "plugin/"
+        }
+    }
+}
