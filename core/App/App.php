@@ -10,15 +10,15 @@ class App
 	private function __wakeup(){}
 	protected function __construct(){}
 
-	public static function run($baseFile, $config)
+	public static function run($baseFile)
     {
-        return static::getInstance($baseFile, $config);
+        return static::getInstance($baseFile);
     }
 
-	public static function getInstance($baseFile = null, $config = null)
+	public static function getInstance($baseFile = null)
 	{
 		if (is_null(static::$instance)) {
-			static::$instance = new AppInstance($baseFile, $config);
+			static::$instance = new AppInstance($baseFile);
 		}
 		return static::$instance;
 	}

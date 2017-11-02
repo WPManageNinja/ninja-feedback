@@ -10,7 +10,7 @@ class Request
 	private function __wakeup(){}
 	protected function __construct(){}
 
-	public static function getInstance()
+	public static function getInstance($baseFile = null)
 	{
 		if (is_null(static::$instance)) {
 			static::$instance = new RequestInstance($_GET, $_POST);

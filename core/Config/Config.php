@@ -11,11 +11,6 @@ class Config
 	private function __wakeup(){}
 	protected function __construct(){}
 
-	public static function init($baseFile)
-	{
-		return static::getInstance($baseFile);
-	}
-
 	public static function getInstance($baseFile = null)
 	{
 		if (is_null(static::$instance)) {

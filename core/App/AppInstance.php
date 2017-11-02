@@ -3,18 +3,20 @@
 namespace Core\App;
 
 use Exception;
+use Core\Config\Config;
+use Core\Request\Request;
 
 class AppInstance
 {
     protected $container = [
-        'config' => null,
         'baseFile' => null,
         'basePath' => null,
+        'config' => Config::class,
+        'request' => Request::class
     ];
 
-    public function __construct($baseFile, $config)
+    public function __construct($baseFile)
     {
-        $this->config = $config;
         $this->baseFile = $baseFile;
         $this->basePath = dirname($baseFile);
         $this->bootstrapWith($this->getProviders());
@@ -104,7 +106,11 @@ class AppInstance
     public function __get($key)
     {
         if (isset($this->container[$key])) {
-            return $this->container[$key];
+            $value = $this->container[$key];
+            if ($value && method_exists($value, 'getInstance')) {
+                return $value::getInstance($this->baseFile);
+            }
+            return $value;
         }
     }
 
