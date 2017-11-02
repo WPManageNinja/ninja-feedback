@@ -1,9 +1,8 @@
 <?php defined('ABSPATH') or die;
 
-namespace Core\Config;
+namespace Core\App;
 
-
-class Config
+class App
 {
 	protected static $instance = null;
 
@@ -11,15 +10,15 @@ class Config
 	private function __wakeup(){}
 	protected function __construct(){}
 
-	public static function init($baseFile)
-	{
-		return static::getInstance($baseFile);
-	}
+	public static function run($baseFile, $config)
+    {
+        return static::getInstance($baseFile, $config);
+    }
 
-	public static function getInstance($baseFile = null)
+	public static function getInstance($baseFile = null, $config = null)
 	{
 		if (is_null(static::$instance)) {
-			static::$instance = new ConfigInstance($baseFile);
+			static::$instance = new AppInstance($baseFile, $config);
 		}
 		return static::$instance;
 	}

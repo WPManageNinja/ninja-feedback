@@ -1,23 +1,18 @@
 <?php defined('ABSPATH') or die;
 
-namespace Core;
+namespace Core\App;
 
 use Exception;
 
-class Main
+class AppInstance
 {
     protected $container = [
-        'config' => [],
+        'config' => null,
         'baseFile' => null,
         'basePath' => null,
     ];
 
-    public static function run($baseFile, $config)
-    {
-        return new static($baseFile, $config);
-    }
-
-    protected function __construct($baseFile, $config)
+    public function __construct($baseFile, $config)
     {
         $this->config = $config;
         $this->baseFile = $baseFile;
@@ -43,9 +38,9 @@ class Main
         }
     }
 
-    private function getProviders()
+    public function getProviders()
     {
-        $providers = $this->config['providers'];
+        $providers = $this->config->get('providers');
 
         if (is_admin()) {
             unset($providers['public']);
