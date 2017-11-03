@@ -1,6 +1,6 @@
-<?php defined('ABSPATH') or die;
+<?php namespace Plugin\Providers;
 
-namespace Plugin\Providers;
+defined('ABSPATH') or die;
 
 class FeedbackProvider
 {
@@ -10,6 +10,7 @@ class FeedbackProvider
 		$plugin->addAction('init', 'Plugin\Modules\Feedback@registerTaxonomy');
 		$plugin->addShortCode('ninja-feedback-list', 'Plugin\Modules\Feedback@handleListShortCode');
 		$plugin->addShortCode('ninja-feedback-form', 'Plugin\Modules\Feedback@handleFormShortCode');
+		$plugin->addAction('init', 'Plugin\Modules\Settings@registerSettingsMenu');
 
 		$this->registerAjaxHandlers($plugin);
 	}

@@ -1,6 +1,5 @@
-<?php defined('ABSPATH') or die;
-
-namespace Plugin\Providers;
+<?php namespace Plugin\Providers;
+defined('ABSPATH') or die;
 
 class CommonProvider
 {

@@ -1,7 +1,7 @@
-<?php defined('ABSPATH') or die;
 
-namespace Core\App;
+<?php namespace Core\App;
 
+defined('ABSPATH') or die;
 use Exception;
 use Core\Config\Config;
 use Core\Request\Request;

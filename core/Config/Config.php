@@ -1,7 +1,6 @@
-<?php defined('ABSPATH') or die;
+<?php  namespace Core\Config;
 
-namespace Core\Config;
-
+defined('ABSPATH') or die;
 
 class Config
 {

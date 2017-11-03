@@ -1,6 +1,6 @@
-<?php defined('ABSPATH') or die;
+<?php namespace Plugin\Providers;
 
-namespace Plugin\Providers;
+defined('ABSPATH') or die;
 
 class ActivationProvider
 {
