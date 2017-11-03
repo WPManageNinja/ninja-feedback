@@ -1,7 +1,6 @@
-<?php defined('ABSPATH') or die;
+<?php namespace Core;
 
-namespace Core;
-
+defined('ABSPATH') or die;
 use Exception;
 
 class Main

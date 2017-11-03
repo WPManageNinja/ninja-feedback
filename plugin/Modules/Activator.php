@@ -1,6 +1,5 @@
-<?php defined('ABSPATH') or die;
-
-namespace Plugin\Modules;
+<?php  namespace Plugin\Modules;
+defined('ABSPATH') or die;
 
 class Activator
 {

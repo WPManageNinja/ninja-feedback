@@ -1,6 +1,6 @@
-<?php defined('ABSPATH') or die;
+<?php namespace Plugin\Modules;
 
-namespace Plugin\Modules;
+defined('ABSPATH') or die;
 
 use Core\Config\Config;
 use Core\Request\Request;
