@@ -16,4 +16,4 @@ Text Domain: ninja-feedback
 
 require_once 'vendor/autoload.php';
 
-Core\Main::run(__FILE__, Core\Config\Config::init(__FILE__));
+Core\App\App::run(__FILE__);

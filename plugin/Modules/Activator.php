@@ -5,6 +5,6 @@ class Activator
 {
 	public function activate()
 	{
-		// dd(__METHOD__);
+		// exit(__METHOD__);
 	}
 }

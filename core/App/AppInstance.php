@@ -1,24 +1,22 @@
-<?php namespace Core;
+
+<?php namespace Core\App;
 
 defined('ABSPATH') or die;
 use Exception;
+use Core\Config\Config;
+use Core\Request\Request;
 
-class Main
+class AppInstance
 {
     protected $container = [
-        'config' => [],
         'baseFile' => null,
         'basePath' => null,
+        'config' => Config::class,
+        'request' => Request::class
     ];
 
-    public static function run($baseFile, $config)
+    public function __construct($baseFile)
     {
-        return new static($baseFile, $config);
-    }
-
-    protected function __construct($baseFile, $config)
-    {
-        $this->config = $config;
         $this->baseFile = $baseFile;
         $this->basePath = dirname($baseFile);
         $this->bootstrapWith($this->getProviders());
@@ -42,9 +40,9 @@ class Main
         }
     }
 
-    private function getProviders()
+    public function getProviders()
     {
-        $providers = $this->config['providers'];
+        $providers = $this->config->get('providers');
 
         if (is_admin()) {
             unset($providers['public']);
@@ -108,7 +106,11 @@ class Main
     public function __get($key)
     {
         if (isset($this->container[$key])) {
-            return $this->container[$key];
+            $value = $this->container[$key];
+            if ($value && method_exists($value, 'getInstance')) {
+                return $value::getInstance($this->baseFile);
+            }
+            return $value;
         }
     }
 
