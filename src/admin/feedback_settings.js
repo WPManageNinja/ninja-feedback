@@ -2,7 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
+import 'element-ui/lib/theme-chalk/tabs.css';
+import 'element-ui/lib/theme-chalk/tab-pane.css';
 
+import { Tabs, TabPane } from 'element-ui';
+Vue.use(Tabs)
+Vue.use(TabPane)
 
 
 import {routes} from './routes'
@@ -16,4 +21,4 @@ const router = new VueRouter({
 window.ninjaTableBus = new Vue();
 
 Application.router = router;
-window.ninjaApp = new Vue(Application).$mount('#ninja_feedback_app');
+window.ninjaFeedback = new Vue(Application).$mount('#ninja_feedback_app');

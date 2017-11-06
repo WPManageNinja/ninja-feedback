@@ -19,10 +19,10 @@ class ScriptRegistrationProvider
 			);
 		});
 
-		$plugin->addAction('admin_enqueue_scripts', function() {
+		$plugin->addAction('wp_enqueue_scripts', function() {
 			wp_register_script(
-				Config::get('name'),
-				Resource::url('js/feedback_public.js'),
+				Config::get('name').'_admin_settings',
+				Resource::url('js/feedback_settings_admin.js'),
 				array('jquery'),
 				Config::get('version'),
 				true

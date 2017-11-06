@@ -3,7 +3,7 @@
 return [
     
     'name' => 'ninja-feedback',
-
+	
     'title' => 'Ninja Feedback',
 
     'version' => '1.0.0',

@@ -1,4 +1,3 @@
-
 <?php namespace Core\App;
 
 defined('ABSPATH') or die;
