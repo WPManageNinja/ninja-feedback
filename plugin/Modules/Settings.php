@@ -1,6 +1,7 @@
 <?php namespace Plugin\Modules;
 
 use Core\Config\Config;
+use Core\Resource\Resource;
 
 class Settings
 {
@@ -11,13 +12,21 @@ class Settings
 	
 	public function renderSettings()
 	{
-		$this->loadAssets();
+		if(WP_DEBUG) {
+			$url = 'http://localhost:8080/assets/js/feedback_settings_admin.js';
+		} else {
+			$url = Resource::url('js/feedback_settings_admin.js');
+		}
+		
+		wp_enqueue_script(
+			Config::get('name').'_admin_settings',
+			$url,
+			array('jquery'),
+			Config::get('version'),
+			true
+		);
 		echo "<div id='ninja_feedback_app'></div>";
 	}
 	
-	public function loadAssets()
-	{
-		wp_enqueue_script('ninja_feedback_settings', )
-	}
 	
 }
